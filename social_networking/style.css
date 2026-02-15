@@ -1,0 +1,426 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #3a9b1a 0%, #c71c1c 100%);
+    min-height: 100vh;
+}
+
+nav {
+    background: rgb(176, 31, 31);
+    padding: 15px 30px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav h1 {
+    color: #667eea;
+    font-size: 24px;
+}
+
+nav div {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.btn-logout {
+    background: #ff4757;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.btn-logout:hover {
+    background: #1e59ce;
+}
+
+.container {
+    max-width: 600px;
+    margin: 30px auto;
+    padding: 0 20px;
+}
+
+.auth-box {
+    background: white;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+    max-width: 400px;
+    margin: 100px auto;
+}
+
+.auth-box h1 {
+    color: #2bc0a9;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.auth-box h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.auth-box input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.auth-box button {
+    width: 100%;
+    padding: 12px;
+    background: #667eea;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.auth-box button:hover {
+    background: #5568d3;
+}
+
+.auth-box p {
+    text-align: center;
+    margin-top: 20px;
+    color: #666;
+}
+
+.auth-box a {
+    color: #667eea;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.error {
+    background: #ff4757;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.success {
+    background: #2ecc71;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.post-box {
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+}
+
+.post-box h3 {
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.post-box textarea {
+    width: 100%;
+    min-height: 100px;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    resize: vertical;
+    font-size: 14px;
+    font-family: inherit;
+}
+
+.post-box button {
+    margin-top: 10px;
+    padding: 10px 25px;
+    background: #667eea;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.post-box button:hover {
+    background: #5568d3;
+}
+
+.posts {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.post {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.post-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.post-header strong {
+    color: #667eea;
+    font-size: 16px;
+}
+
+.post-header small {
+    display: block;
+    color: #999;
+    font-size: 12px;
+    margin-top: 3px;
+}
+
+.delete-btn {
+    text-decoration: none;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.post-content {
+    color: #333;
+    line-height: 1.6;
+    margin-bottom: 15px;
+    white-space: pre-wrap;
+}
+
+.post-footer {
+    border-top: 1px solid #eee;
+    padding-top: 10px;
+}
+
+.like-btn {
+    display: inline-block;
+    padding: 8px 15px;
+    background: #f1f1f1;
+    border-radius: 20px;
+    text-decoration: none;
+    color: #333;
+    font-size: 14px;
+    transition: all 0.3s;
+}
+
+.like-btn:hover {
+    background: #e0e0e0;
+}
+
+.like-btn.liked {
+    background: #ff4757;
+    color: white;
+}
+
+.no-posts {
+    text-align: center;
+    color: white;
+    font-size: 18px;
+    padding: 40px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 10px;
+}
+
+/* Image upload styles */
+.post-box textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    resize: vertical;
+    min-height: 80px;
+}
+
+.post-box {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+}
+
+.post-box h3 {
+    color: #667eea;
+    margin-bottom: 15px;
+}
+
+.file-input-wrapper {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.file-input-wrapper input[type="file"] {
+    flex: 1;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.post-box button {
+    background: #667eea;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background 0.3s;
+}
+
+.post-box button:hover {
+    background: #5568d3;
+}
+
+.post {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+}
+
+.post-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.post-header strong {
+    color: #667eea;
+}
+
+.post-header small {
+    color: #999;
+    font-size: 12px;
+    margin-left: 10px;
+}
+
+.delete-btn {
+    background: #ff4757;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 12px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.delete-btn:hover {
+    background: #ff3838;
+}
+
+.post-content {
+    color: #333;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.post-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin: 15px 0;
+    max-height: 400px;
+}
+
+.post-footer {
+    display: flex;
+    gap: 15px;
+    padding-top: 10px;
+    border-top: 1px solid #eee;
+}
+
+.like-btn {
+    background: #f0f0f0;
+    color: #333;
+    padding: 8px 15px;
+    border-radius: 20px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.like-btn:hover {
+    background: #667eea;
+    color: white;
+}
+
+.like-btn.liked {
+    background: #ff4757;
+    color: white;
+}
+
+.emoji-picker {
+    display: flex;
+    gap: 5px;
+    margin-top: 10px;
+    flex-wrap: wrap;
+}
+
+.emoji-picker button {
+    background: white;
+    border: 1px solid #ddd;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: all 0.2s;
+}
+
+.emoji-picker button:hover {
+    background: #667eea;
+    transform: scale(1.1);
+}
+
+.no-posts {
+    color: #999;
+    text-align: center;
+    padding: 40px;
+}
+
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .container {
+        padding: 0 10px;
+    }
+    
+    .auth-box {
+        margin: 50px 10px;
+        padding: 25px;
+    }
+}
